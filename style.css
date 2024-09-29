@@ -178,8 +178,6 @@ a:hover {
     color: white;
 }
 
-
-
 @media (max-width: 768px) {
     nav {
         display: flex;
@@ -222,7 +220,7 @@ a:hover {
     }
 
     .video-item {
-        width: 100%;
+        width: 100%; /* Asegura que solo se vea un video */
         max-width: 100%;
     }
 
@@ -230,25 +228,8 @@ a:hover {
         width: 100%;
     }
 
-    .video-navigation {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .video-container {
-        display: flex;
-        flex-direction: column; /* Organiza los videos en columna */
-        width: 100%;
-        margin: 20px auto;
-    }
-
-    .video-item {
-        width: 100%; /* Asegura que solo se vea un video */
-        max-width: 100%;
-    }
-    
+    /* Mostrar solo un video a la vez en pantallas pequeñas */
     .video-item:not(:first-child) {
-        display: none; /* Oculta los demás videos */
+        display: none;
     }
 }
