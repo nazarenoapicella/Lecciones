@@ -232,4 +232,7 @@ a:hover {
     .video-item:not(:first-child) {
         display: none;
     }
+    button{
+        margin-top: 10%;
+    }
 }
