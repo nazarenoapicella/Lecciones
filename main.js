@@ -39,13 +39,14 @@ document.getElementById('yt').addEventListener('click', () => {
 });
 
 let currentVideoIndex = 0;
-const videosPerPage = 4;
+let videosPerPage = window.innerWidth < 768 ? 1 : 5; // Inicializa con 1 video si la pantalla es pequeña
+
 function updateVideoDisplay(filteredVideos = videoLinks) {
     const videoContainer = document.querySelector('.video-container');
     videoContainer.innerHTML = '';
 
     const start = currentVideoIndex;
-    const end = Math.min(currentVideoIndex + (window.innerWidth < 768 ? 1 : videosPerPage), filteredVideos.length); // Muestra solo 1 video en pantallas pequeñas
+    const end = Math.min(currentVideoIndex + videosPerPage, filteredVideos.length);
 
     for (let i = start; i < end; i++) {
         const videoItem = document.createElement('div');
@@ -70,38 +71,28 @@ function updateVideoDisplay(filteredVideos = videoLinks) {
     }
 }
 
-
-document.getElementById('prevButton').addEventListener('click', () => {
-    if (currentVideoIndex > 0) {
-        currentVideoIndex -= videosPerPage;
-        updateVideoDisplay();
+function checkScreenSize() {
+    if (window.matchMedia("(max-width: 767px)").matches) {
+        videosPerPage = 1; // Mostrar solo 1 video en pantallas pequeñas
+    } else {
+        videosPerPage = 5; // Mostrar todos los videos en pantallas grandes
     }
-});
-
-document.getElementById('nextButton').addEventListener('click', () => {
-    if (currentVideoIndex + videosPerPage < videoLinks.length) {
-        currentVideoIndex += videosPerPage;
-        updateVideoDisplay();
-    }
-});
-
-
-function searchVideos() {
-    const query = document.getElementById('search').value.toLowerCase();
-    const filteredVideos = videoLinks.filter(video => video.title.toLowerCase().includes(query));
-    currentVideoIndex = 0;
-    updateVideoDisplay(filteredVideos);
+    updateVideoDisplay(); // Actualiza la vista de videos
 }
 
+// Llama a `checkScreenSize` cuando la página se cargue por primera vez
+checkScreenSize();
 
-document.getElementById('searchButton').addEventListener('click', searchVideos);
+// Escucha el cambio de tamaño de la ventana y ajusta la cantidad de videos mostrados
+window.addEventListener('resize', checkScreenSize);
 
-
-document.getElementById('search').addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        searchVideos();
-    }
+// Actualiza videos con el botón siguiente/anterior
+document.querySelector('.next-button').addEventListener('click', () => {
+    currentVideoIndex = (currentVideoIndex + videosPerPage) % videoLinks.length;
+    updateVideoDisplay();
 });
 
-
-updateVideoDisplay();
+document.querySelector('.prev-button').addEventListener('click', () => {
+    currentVideoIndex = (currentVideoIndex - videosPerPage + videoLinks.length) % videoLinks.length;
+    updateVideoDisplay();
+});
