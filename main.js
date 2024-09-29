@@ -30,11 +30,10 @@ const videoLinks = [
     { url: "https://www.youtube.com/watch?v=JDhixIol9-4", title: "Preludio Obsesivo", thumbnail: "./Images/rata.jpg" },
     { url: "https://www.youtube.com/watch?v=kll5b0bYi3Q", title: "Apocalipsis Confort", thumbnail: "./Images/huracan.webp" },
 
-    // Agrega más enlaces aquí con su respectivo título y thumbnail
+
 ];
 
 
-// Redirigir al canal de YouTube
 document.getElementById('yt').addEventListener('click', () => {
     window.location.href = 'https://www.youtube.com/@apicellanazareno/videos';
 });
@@ -86,7 +85,7 @@ document.getElementById('nextButton').addEventListener('click', () => {
     }
 });
 
-// Función de búsqueda que se puede reutilizar
+
 function searchVideos() {
     const query = document.getElementById('search').value.toLowerCase();
     const filteredVideos = videoLinks.filter(video => video.title.toLowerCase().includes(query));
@@ -94,15 +93,15 @@ function searchVideos() {
     updateVideoDisplay(filteredVideos);
 }
 
-// Ejecutar búsqueda al hacer clic en el botón
+
 document.getElementById('searchButton').addEventListener('click', searchVideos);
 
-// Ejecutar búsqueda al presionar la tecla "Enter"
+
 document.getElementById('search').addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         searchVideos();
     }
 });
 
-// Inicializa la visualización
+
 updateVideoDisplay();

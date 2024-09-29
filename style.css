@@ -10,7 +10,7 @@ body {
     color: white;
 }
 
-/* Estilo del Navbar */
+
 nav {
     display: flex;
     align-items: center;
@@ -19,13 +19,13 @@ nav {
     background-color: black;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 100vw; /* Asegura que no exceda el ancho de la ventana */
+    max-width: 100vw; 
     position: sticky;
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s ease;
     color: white;
-    box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+    box-sizing: border-box; 
 }
 
 nav:hover {
@@ -93,7 +93,7 @@ input:focus {
     outline: none;
 }
 
-/* Ajustes para pantallas más pequeñas */
+
 @media (max-width: 768px) {
     ul {
         gap: 3%;
@@ -118,7 +118,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-image: url('./Images/b.jpg'); /* Ajusta la ruta según sea necesario */
+    background-image: url('./Images/b.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
