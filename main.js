@@ -7,7 +7,7 @@ const videoLinks = [
     { url: "https://www.youtube.com/watch?v=XDsYh91e35s&pp=ygUVbGliZXJ0YWQgY292ZXIgYWlyYmFn", title: "Libertad", thumbnail: "./Images/libertad.jpg" },
     { url: "https://www.youtube.com/watch?v=M63VNT56CWE", title: "Kamikaze", thumbnail: "./Images/alpa.jpg" },
     { url: "https://www.youtube.com/watch?v=IGxDFTRYpf4&t=10s", title: "Mamba Negra", thumbnail: "./Images/alpa.jpg" },
-    { url: "https://www.youtube.com/watch?v=Ty8SHrirMr8", title: "Sube Sube", thumbnail: "./Images/libertad.jpg" },
+    { url: "https://www.youtube.com/watch?v=Ty8SHrirMr8", title: "Sube Sube", thumbnail: "./Images/alpa.jpg" },
     { url: "https://www.youtube.com/watch?v=o4b3xCPgfHc", title: "Relampagos", thumbnail: "./Images/huracan.webp" },
     { url: "https://www.youtube.com/watch?v=BAHJiB-BXKk", title: "Cuchillos Guantanamera", thumbnail: "./Images/alpa.jpg" },
     { url: "https://www.youtube.com/watch?v=AUjEHYpW2A0", title: "Motor Enfermo", thumbnail: "./Images/alpa.jpg" },
@@ -32,18 +32,18 @@ const videoLinks = [
 ];
 
 let currentVideoIndex = 0;
-let videosPerPage = 1; // Default is 1 video per page
+let videosPerPage = 1; 
 
-// Función para ajustar la cantidad de videos por página según el tamaño de la pantalla
+
 function adjustVideosPerPage() {
     const screenWidth = window.innerWidth;
 
     if (screenWidth < 600) {
-        videosPerPage = 1; // Small screens, show only 1 video
+        videosPerPage = 1; 
     } else if (screenWidth >= 600 && screenWidth < 1024) {
-        videosPerPage = 2; // Medium screens, show 2 videos
+        videosPerPage = 2; 
     } else {
-        videosPerPage = 4; // Large screens, show 4 videos
+        videosPerPage = 4; 
     }
 }
 
@@ -91,27 +91,19 @@ document.getElementById('nextButton').addEventListener('click', () => {
     }
 });
 
-function searchVideos() {
+
+document.getElementById('search').addEventListener('input', () => {
     const query = document.getElementById('search').value.toLowerCase();
     const filteredVideos = videoLinks.filter(video => video.title.toLowerCase().includes(query));
-    currentVideoIndex = 0;
+    currentVideoIndex = 0; 
     updateVideoDisplay(filteredVideos);
-}
-
-document.getElementById('searchButton').addEventListener('click', searchVideos);
-
-document.getElementById('search').addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        searchVideos();
-    }
 });
 
-// Ajusta el número de videos al cargar la página y cuando se redimensiona la ventana
+
 window.addEventListener('resize', () => {
     adjustVideosPerPage();
     updateVideoDisplay();
 });
 
-// Llama a la función para establecer los videos por página según el tamaño de la pantalla
 adjustVideosPerPage();
 updateVideoDisplay();
