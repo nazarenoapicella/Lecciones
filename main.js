@@ -7,7 +7,7 @@ const videoLinks = [
     { url: "https://www.youtube.com/watch?v=XDsYh91e35s&pp=ygUVbGliZXJ0YWQgY292ZXIgYWlyYmFn", title: "Libertad", thumbnail: "./Images/libertad.jpg" },
     { url: "https://www.youtube.com/watch?v=M63VNT56CWE", title: "Kamikaze", thumbnail: "./Images/alpa.jpg" },
     { url: "https://www.youtube.com/watch?v=IGxDFTRYpf4&t=10s", title: "Mamba Negra", thumbnail: "./Images/alpa.jpg" },
-    { url: "https://www.youtube.com/watch?v=Ty8SHrirMr8", title: "Sube Sube", thumbnail: "./Images/alpa.jpg" },
+    { url: "https://www.youtube.com/watch?v=Ty8SHrirMr8", title: "Sube Sube", thumbnail: "./Images/libertad.jpg" },
     { url: "https://www.youtube.com/watch?v=o4b3xCPgfHc", title: "Relampagos", thumbnail: "./Images/huracan.webp" },
     { url: "https://www.youtube.com/watch?v=BAHJiB-BXKk", title: "Cuchillos Guantanamera", thumbnail: "./Images/alpa.jpg" },
     { url: "https://www.youtube.com/watch?v=AUjEHYpW2A0", title: "Motor Enfermo", thumbnail: "./Images/alpa.jpg" },
@@ -40,13 +40,12 @@ document.getElementById('yt').addEventListener('click', () => {
 
 let currentVideoIndex = 0;
 const videosPerPage = 4;
-
 function updateVideoDisplay(filteredVideos = videoLinks) {
     const videoContainer = document.querySelector('.video-container');
     videoContainer.innerHTML = '';
 
     const start = currentVideoIndex;
-    const end = Math.min(currentVideoIndex + videosPerPage, filteredVideos.length);
+    const end = Math.min(currentVideoIndex + (window.innerWidth < 768 ? 1 : videosPerPage), filteredVideos.length); // Muestra solo 1 video en pantallas pequeñas
 
     for (let i = start; i < end; i++) {
         const videoItem = document.createElement('div');
@@ -70,6 +69,7 @@ function updateVideoDisplay(filteredVideos = videoLinks) {
         videoContainer.appendChild(videoItem);
     }
 }
+
 
 document.getElementById('prevButton').addEventListener('click', () => {
     if (currentVideoIndex > 0) {
