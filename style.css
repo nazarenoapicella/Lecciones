@@ -90,45 +90,6 @@ input:focus {
     outline: none;
 }
 
-@media (max-width: 768px) {
-    ul {
-        gap: 5%;
-        font-size: small;
-    }
-
-    li {
-        margin-right: 5px;
-    }
-
-    #yt {
-        width: 7%;
-        position: absolute; /* Para moverlo a la izquierda */
-        left: 10px; /* Mueve el logo más a la izquierda */
-    }
-
-    #usuario {
-        width: 10%;
-    }
-
-    input {
-        width: 70%;
-    }
-
-    .video-container {
-        width: 100%;
-        margin: 20px auto;
-    }
-
-    .video-item {
-        width: 100%; /* Ocupa todo el ancho disponible */
-        max-width: 100%; /* Solo muestra un video por fila */
-    }
-
-    .video-thumbnail {
-        width: 100%; /* Ajustado para ocupar el 100% del contenedor */
-    }
-}
-
 main {
     flex: 1;
     display: flex;
@@ -215,4 +176,45 @@ a:hover {
 
 .video-item h3 {
     color: white;
+}
+
+/* Ajustes para pantallas pequeñas (máx. 768px) */
+@media (max-width: 768px) {
+    .video-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .video-item {
+        width: 100%;
+        max-width: 100%; /* Mostrar solo un video a la vez */
+    }
+
+    /* Ajustes de la barra de navegación */
+    #yt {
+        width: 7%;
+        position: absolute;
+        left: 10px; /* Mover logo de YouTube hacia la izquierda */
+    }
+
+    #usuario {
+        width: 10%;
+    }
+
+    input {
+        width: 70%; /* Ajustar ancho del input */
+    }
+
+    ul {
+        gap: 5%;
+        font-size: small;
+    }
+
+    li {
+        margin-right: 5px;
+    }
 }
