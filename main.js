@@ -7,7 +7,7 @@ const videoLinks = [
     { url: "https://www.youtube.com/watch?v=XDsYh91e35s&pp=ygUVbGliZXJ0YWQgY292ZXIgYWlyYmFn", title: "Libertad", thumbnail: "./Images/libertad.jpg" },
     { url: "https://www.youtube.com/watch?v=M63VNT56CWE", title: "Kamikaze", thumbnail: "./Images/alpa.jpg" },
     { url: "https://www.youtube.com/watch?v=IGxDFTRYpf4&t=10s", title: "Mamba Negra", thumbnail: "./Images/alpa.jpg" },
-    { url: "https://www.youtube.com/watch?v=Ty8SHrirMr8", title: "Sube Sube", thumbnail: "./Images/libertad.jpg" },
+    { url: "https://www.youtube.com/watch?v=Ty8SHrirMr8", title: "Sube Sube", thumbnail: "./Images/alpa.jpg" },
     { url: "https://www.youtube.com/watch?v=o4b3xCPgfHc", title: "Relampagos", thumbnail: "./Images/huracan.webp" },
     { url: "https://www.youtube.com/watch?v=BAHJiB-BXKk", title: "Cuchillos Guantanamera", thumbnail: "./Images/alpa.jpg" },
     { url: "https://www.youtube.com/watch?v=AUjEHYpW2A0", title: "Motor Enfermo", thumbnail: "./Images/alpa.jpg" },
@@ -28,18 +28,24 @@ const videoLinks = [
     { url: "https://www.youtube.com/watch?v=j43ROkzAmTQ&t=4s", title: "Mujer Amante", thumbnail: "./Images/mujer.jpg" },
     { url: "https://www.youtube.com/watch?v=Qh47eaKWXvA", title: "El Ultimo Ataque", thumbnail: "./Images/rata.jpg" },
     { url: "https://www.youtube.com/watch?v=JDhixIol9-4", title: "Preludio Obsesivo", thumbnail: "./Images/rata.jpg" },
-    { url: "https://www.youtube.com/watch?v=kll5b0bYi3Q", title: "Apocalipsis Confort", thumbnail: "./Images/huracan.webp" },
-
-
+    { url: "https://www.youtube.com/watch?v=kll5b0bYi3Q", title: "Apocalipsis Confort", thumbnail: "./Images/huracan.webp" }
 ];
 
-
-document.getElementById('yt').addEventListener('click', () => {
-    window.location.href = 'https://www.youtube.com/@apicellanazareno/videos';
-});
-
 let currentVideoIndex = 0;
-let videosPerPage = window.innerWidth < 768 ? 1 : 5; // Inicializa con 1 video si la pantalla es pequeña
+let videosPerPage = 1; // Default is 1 video per page
+
+// Función para ajustar la cantidad de videos por página según el tamaño de la pantalla
+function adjustVideosPerPage() {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth < 600) {
+        videosPerPage = 1; // Small screens, show only 1 video
+    } else if (screenWidth >= 600 && screenWidth < 1024) {
+        videosPerPage = 2; // Medium screens, show 2 videos
+    } else {
+        videosPerPage = 4; // Large screens, show 4 videos
+    }
+}
 
 function updateVideoDisplay(filteredVideos = videoLinks) {
     const videoContainer = document.querySelector('.video-container');
@@ -71,28 +77,41 @@ function updateVideoDisplay(filteredVideos = videoLinks) {
     }
 }
 
-function checkScreenSize() {
-    if (window.matchMedia("(max-width: 767px)").matches) {
-        videosPerPage = 1; // Mostrar solo 1 video en pantallas pequeñas
-    } else {
-        videosPerPage = 5; // Mostrar todos los videos en pantallas grandes
+document.getElementById('prevButton').addEventListener('click', () => {
+    if (currentVideoIndex > 0) {
+        currentVideoIndex -= videosPerPage;
+        updateVideoDisplay();
     }
-    updateVideoDisplay(); // Actualiza la vista de videos
+});
+
+document.getElementById('nextButton').addEventListener('click', () => {
+    if (currentVideoIndex + videosPerPage < videoLinks.length) {
+        currentVideoIndex += videosPerPage;
+        updateVideoDisplay();
+    }
+});
+
+function searchVideos() {
+    const query = document.getElementById('search').value.toLowerCase();
+    const filteredVideos = videoLinks.filter(video => video.title.toLowerCase().includes(query));
+    currentVideoIndex = 0;
+    updateVideoDisplay(filteredVideos);
 }
 
-// Llama a `checkScreenSize` cuando la página se cargue por primera vez
-checkScreenSize();
+document.getElementById('searchButton').addEventListener('click', searchVideos);
 
-// Escucha el cambio de tamaño de la ventana y ajusta la cantidad de videos mostrados
-window.addEventListener('resize', checkScreenSize);
+document.getElementById('search').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        searchVideos();
+    }
+});
 
-// Actualiza videos con el botón siguiente/anterior
-document.querySelector('.next-button').addEventListener('click', () => {
-    currentVideoIndex = (currentVideoIndex + videosPerPage) % videoLinks.length;
+// Ajusta el número de videos al cargar la página y cuando se redimensiona la ventana
+window.addEventListener('resize', () => {
+    adjustVideosPerPage();
     updateVideoDisplay();
 });
 
-document.querySelector('.prev-button').addEventListener('click', () => {
-    currentVideoIndex = (currentVideoIndex - videosPerPage + videoLinks.length) % videoLinks.length;
-    updateVideoDisplay();
-});
+// Llama a la función para establecer los videos por página según el tamaño de la pantalla
+adjustVideosPerPage();
+updateVideoDisplay();
