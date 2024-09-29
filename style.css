@@ -178,54 +178,60 @@ a:hover {
     color: white;
 }
 
-/* Ajustes para pantallas pequeñas (máx. 768px) */
+
+
 @media (max-width: 768px) {
-    /* Ajustes para la barra de navegación */
     nav {
-        flex-wrap: wrap; /* Permite que los elementos se apilen en varias filas si es necesario */
-    }
-
-    #yt {
-        width: 7%;
-        position: relative;
-        margin-right: 10px; /* Para evitar que se superponga */
-    }
-
-    #usuario {
-        width: 10%;
-    }
-
-    input {
-        width: 70%; /* Ajustar ancho del input */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        flex-wrap: wrap;
     }
 
     ul {
+        display: flex;
+        flex: 1;
+        justify-content: center;
         gap: 5%;
-        font-size: small;
-        justify-content: space-around; /* Reorganizar los items del menú */
-        width: 100%;
+        margin: 0;
+        padding: 0;
     }
 
     li {
         margin-right: 5px;
+        font-size: small;
     }
 
-    /* Ajustes para los videos */
+    #yt {
+        width: 7%;
+        position: absolute;
+        left: 10px;
+    }
+
+    input {
+        width: 70%;
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
     .video-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         width: 100%;
         margin: 20px auto;
+        flex-direction: column;
     }
 
     .video-item {
         width: 100%;
-        max-width: 100%; /* Mostrar solo un video a la vez */
-        margin-bottom: 20px; /* Espacio entre videos */
+        max-width: 100%;
     }
 
     .video-thumbnail {
-        width: 100%; /* Asegura que el video ocupe todo el ancho disponible */
+        width: 100%;
+    }
+
+    .video-navigation {
+        display: none;
     }
 }
+
