@@ -2,7 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 100vh; /* Cambiado de 96vh a 100vh para cubrir toda la altura */
+    min-height: 100vh;
     padding: 0;
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -14,7 +14,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 5%; /* Ajustado para mayor consistencia en pantallas más pequeñas */
+    padding: 15px 5%;
     background-color: black;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -31,7 +31,7 @@ nav:hover {
 }
 
 #yt, #usuario, #searchButton {
-    width: 5%; /* Aumentado para mejorar la visibilidad */
+    width: 5%;
     position: relative;
     transition: transform 0.3s ease;
 }
@@ -43,7 +43,7 @@ nav:hover {
 ul {
     list-style-type: none;
     display: flex;
-    gap: 10%; /* Aumentado el espacio entre los elementos */
+    gap: 10%;
     padding: 0;
     margin: 0;
     justify-content: center;
@@ -69,7 +69,7 @@ li > a {
 }
 
 input {
-    width: 30%; /* Ajustado para mejor visibilidad */
+    width: 30%;
     height: 35px;
     margin-right: 2%;
     padding-left: 10px;
@@ -100,12 +100,32 @@ input:focus {
         margin-right: 5px;
     }
 
-    #yt, #usuario {
-        width: 10%; /* Ajustado para mejor visibilidad */
+    #yt {
+        width: 7%;
+        position: absolute; /* Para moverlo a la izquierda */
+        left: 10px; /* Mueve el logo más a la izquierda */
+    }
+
+    #usuario {
+        width: 10%;
     }
 
     input {
-        width: 70%; /* Ajustado para mejor visibilidad en pantallas pequeñas */
+        width: 70%;
+    }
+
+    .video-container {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .video-item {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        max-width: 100%; /* Solo muestra un video por fila */
+    }
+
+    .video-thumbnail {
+        width: 100%; /* Ajustado para ocupar el 100% del contenedor */
     }
 }
 
@@ -114,7 +134,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-image: url('./Images/b.jpg'); 
+    background-image: url('./Images/b.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -128,7 +148,7 @@ main {
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
-    width: 90%; /* Ajustado para mayor adaptabilidad */
+    width: 90%;
     margin: 40px auto;
     color: white;
 }
@@ -138,8 +158,8 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 10px;
     color: white;
-    width: 100%; /* Asegura que ocupe el ancho completo en móviles */
-    max-width: 200px; /* Añadido límite en pantallas más grandes */
+    width: 100%;
+    max-width: 200px;
 }
 
 .video-item:hover {
@@ -148,7 +168,7 @@ main {
 }
 
 .video-thumbnail {
-    width: 100%; /* Ajustado para ocupar el 100% de su contenedor */
+    width: 100%;
     height: auto;
     border-radius: 10px;
     transition: box-shadow 0.3s ease;
@@ -173,7 +193,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10%; 
+    margin-top: 10%;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
