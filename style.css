@@ -157,6 +157,12 @@ button {
     margin-top: 10%;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
+#nextButton{
+    margin-right: 0.3%;
+}
+#prevButton{
+    margin-left: 0.3%;
+}
 
 button:hover {
     background-color: #970303;
@@ -176,6 +182,15 @@ a:hover {
 
 .video-item h3 {
     color: white;
+}
+
+footer {
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    margin-top: auto; 
 }
 
 @media (max-width: 768px) {
@@ -220,7 +235,7 @@ a:hover {
     }
 
     .video-item {
-        width: 100%; /* Asegura que solo se vea un video */
+        width: 100%;
         max-width: 100%;
     }
 
@@ -228,7 +243,7 @@ a:hover {
         width: 100%;
     }
 
-    /* Mostrar solo un video a la vez en pantallas pequeñas */
+
     .video-item:not(:first-child) {
         display: none;
     }
