@@ -114,7 +114,25 @@ main {
     color: white;
 }
 
+.lesson-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    width: 90%;
+    margin: 40px auto;
+    color: white;
+}
+
 .video-item {
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    max-width: 200px;
+}
+.lesson-item{
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 10px;
@@ -127,6 +145,10 @@ main {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+.lesson-item:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
 .video-thumbnail {
     width: 100%;
@@ -135,12 +157,27 @@ main {
     transition: box-shadow 0.3s ease;
     color: white;
 }
+.lesson-thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+    color: white;
+}
+
 
 .video-thumbnail:hover {
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
 }
-
+.lesson-thumbail:hover{
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
 .video-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.lesson-navigation{
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
@@ -163,6 +200,12 @@ button {
 #prevButton{
     margin-left: 0.3%;
 }
+#prevButtonNavigation{
+    margin-left: 0.3%;
+}
+#nextButtonNavigation{
+    margin-right: 0.3%;
+}
 
 button:hover {
     background-color: #970303;
@@ -181,6 +224,9 @@ a:hover {
 }
 
 .video-item h3 {
+    color: white;
+}
+.lesson-item h3{
     color: white;
 }
 
@@ -212,7 +258,7 @@ footer {
     }
 
     li {
-        margin-right: 5px;
+       
         font-size: small;
     }
 
@@ -233,18 +279,30 @@ footer {
         margin: 20px auto;
         flex-direction: column;
     }
-
+    .lesson-container{
+        width: 100%;
+        margin: 20px auto;
+        flex-direction: column;
+    }
     .video-item {
         width: 100%;
         max-width: 100%;
     }
-
+    .lesson-item{
+        width: 100%;
+        max-width: 100%;
+    }
     .video-thumbnail {
         width: 100%;
     }
-
+    .lesson-thumbail{
+        width: 100%;
+    }
 
     .video-item:not(:first-child) {
+        display: none;
+    }
+    .lesson-item:not(:first-child){
         display: none;
     }
     button{
