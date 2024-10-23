@@ -324,4 +324,7 @@ footer {
         margin-right: 0.3%;
         margin-top: 20%;
     }
+    button{
+        font-size: x-small;
+    }
 }
