@@ -191,20 +191,23 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10%;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 #nextButton{
     margin-right: 0.3%;
+    margin-top: 10%;
 }
 #prevButton{
     margin-left: 0.3%;
+    margin-top: 10%;
 }
 #prevButtonNavigation{
     margin-left: 0.3%;
+    margin-top: 5.5%;
 }
 #nextButtonNavigation{
     margin-right: 0.3%;
+    margin-top: 5.5%;
 }
 
 button:hover {
@@ -258,7 +261,7 @@ footer {
     }
 
     li {
-        margin-right: 5%;
+        margin-right: 10%;
         font-size: small;
     }
 
