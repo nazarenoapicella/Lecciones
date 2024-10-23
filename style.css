@@ -310,21 +310,18 @@ footer {
     }
     #nextButton{
         margin-right: 0.3%;
-        margin-top: 10%;
+        margin-top: 30%;
     }
     #prevButton{
         margin-left: 0.3%;
-        margin-top: 10%;
+        margin-top: 30%;
     }
     #prevButtonNavigation{
         margin-left: 0.3%;
-        margin-top: 5.5%;
+        margin-top: 20%;
     }
     #nextButtonNavigation{
         margin-right: 0.3%;
-        margin-top: 5.5%;
+        margin-top: 20%;
     }
-    button{
-        background-color: blue;
-    }    
 }
