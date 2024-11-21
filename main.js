@@ -37,6 +37,7 @@ const videoLinks = [
 ];
 const lessonLinks = [
     { url: "https://youtu.be/cWuVUw0lTY0", title: "Intro Diez Dias Despues", thumbnail: "./Images/IntroVelezDiez.webp" },
+    { url: "https://youtu.be/gddK4lsMjyU", title: "Cuchillos Guantanamera", thumbnail: "./Images/CuchillosTutorial.jpg" },
 ]
 
 let currentVideoIndex = 0;
