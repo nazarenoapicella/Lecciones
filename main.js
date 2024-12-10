@@ -12,6 +12,7 @@ const videoLinks = [
     { url: "https://www.youtube.com/watch?v=IGxDFTRYpf4&t=10s", title: "Mamba Negra", thumbnail: "./Images/alpa.jpg" },
     { url: "https://youtu.be/l9R0qD2P8tY", title: "Cae El Sol", thumbnail: "./Images/voragine.webp" },
     { url: "https://www.youtube.com/watch?v=Ty8SHrirMr8", title: "Sube Sube", thumbnail: "./Images/libertad.jpg" },
+    { url: "https://www.youtube.com/watch?v=C6xvYaXyWm4", title: "Anarquia en Bs.As", thumbnail: "./Images/anarquia.webp" },
     { url: "https://www.youtube.com/watch?v=kF4hPxj6MPo", title: "Mecanismos de control", thumbnail: "./Images/voragine.webp" },
     { url: "https://www.youtube.com/watch?v=o4b3xCPgfHc", title: "Relampagos", thumbnail: "./Images/huracan.webp" },
     { url: "https://www.youtube.com/watch?v=BAHJiB-BXKk", title: "Cuchillos Guantanamera", thumbnail: "./Images/alpa.jpg" },
