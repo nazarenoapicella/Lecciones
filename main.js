@@ -39,7 +39,7 @@ const videoLinks = [
 const lessonLinks = [
     { url: "https://youtu.be/cWuVUw0lTY0", title: "Intro Diez Dias Despues", thumbnail: "./Images/IntroVelezDiez.webp" },
     { url: "https://youtu.be/gddK4lsMjyU", title: "Cuchillos Guantanamera", thumbnail: "./Images/CuchillosTutorial.jpg" },
-    { url: "https://youtu.be/oh5bwHKVHtI", title: "Solo Aqui", thumbnail: "./Images/soloAquiTuto1.PNG" },
+    { url: "https://youtu.be/oh5bwHKVHtI", title: "Solo Aqui", thumbnail: "./Images/soloAquiTuto1.png" },
 ]
 
 let currentVideoIndex = 0;
