@@ -40,6 +40,7 @@ const lessonLinks = [
     { url: "https://youtu.be/cWuVUw0lTY0", title: "Intro Diez Dias Despues", thumbnail: "./Images/IntroVelezDiez.webp" },
     { url: "https://youtu.be/gddK4lsMjyU", title: "Cuchillos Guantanamera", thumbnail: "./Images/CuchillosTutorial.jpg" },
     { url: "https://youtu.be/oh5bwHKVHtI", title: "Solo Aqui", thumbnail: "Images/soloAquiTuto1.png" },
+    { url: "https://youtu.be/7UtP5bAdNLM?si=okYiVIjZ3dsWn4lO", title: "Motor Enfermo", thumbnail: "Images/MotorEnfermoTuto.PNG" },
 ]
 
 let currentVideoIndex = 0;
